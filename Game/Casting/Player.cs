@@ -17,14 +17,14 @@ namespace Unit05.Game.Casting
         /// </summary>
         public Snake()
         {
-            PrepareBody();
+            PreparePlayer();
         }
 
         /// <summary>
         /// Gets the snake's body segments.
         /// </summary>
         /// <returns>The body segments in a List.</returns>
-        public List<Actor> GetBody()
+        public List<Actor> GetTrail()
         {
             return new List<Actor>(segments.Skip(1).ToArray());
         }
@@ -33,7 +33,7 @@ namespace Unit05.Game.Casting
         /// Gets the snake's head segment.
         /// </summary>
         /// <returns>The head segment as an instance of Actor.</returns>
-        public Actor GetHead()
+        public Actor GetCycle()
         {
             return segments[0];
         }
@@ -47,26 +47,19 @@ namespace Unit05.Game.Casting
             return segments;
         }
 
-        /// <summary>
-        /// Grows the snake's tail by the given number of segments.
-        /// </summary>
-        /// <param name="numberOfSegments">The number of segments to grow.</param>
-        public void GrowTail(int numberOfSegments)
+        public void ExtendTrail()
         {
-            for (int i = 0; i < numberOfSegments; i++)
-            {
-                Actor tail = segments.Last<Actor>();
-                Point velocity = tail.GetVelocity();
-                Point offset = velocity.Reverse();
-                Point position = tail.GetPosition().Add(offset);
+            Actor tail = segments.Last<Actor>();
+            Point velocity = tail.GetVelocity();
+            Point offset = velocity.Reverse();
+            Point position = tail.GetPosition().Add(offset);
 
-                Actor segment = new Actor();
-                segment.SetPosition(position);
-                segment.SetVelocity(velocity);
-                segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
-                segments.Add(segment);
-            }
+            Actor segment = new Actor();
+            segment.SetPosition(position);
+            segment.SetVelocity(velocity);
+            segment.SetText("#");
+            segment.SetColor(Constants.GREEN);
+            segments.Add(segment);
         }
 
         /// <inheritdoc/>
@@ -86,11 +79,7 @@ namespace Unit05.Game.Casting
             }
         }
 
-        /// <summary>
-        /// Turns the head of the snake in the given direction.
-        /// </summary>
-        /// <param name="velocity">The given direction.</param>
-        public void TurnHead(Point direction)
+        public void TurnCycle(Point direction)
         {
             segments[0].SetVelocity(direction);
         }
@@ -98,7 +87,7 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
-        private void PrepareBody()
+        private void PreparePlayer()
         {
             int x = Constants.MAX_X / 2;
             int y = Constants.MAX_Y / 2;
