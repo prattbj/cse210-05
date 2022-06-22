@@ -62,8 +62,8 @@ namespace Unit05.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             
-            Player player1 = (Player) cast.GetFirstActor("player1");
-            Player player2 = (Player) cast.GetFirstActor("player2");
+            Player player1 = (Player) cast.GetFirstOfKey("player1");
+            Player player2 = (Player) cast.GetFirstOfKey("player2");
             Actor head1 = player1.GetCycle();
             Actor head2 = player2.GetCycle();
             List<Actor> body1 = player1.GetSegments();
@@ -98,8 +98,8 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == true)
             {
-                Player player1 = (Player)cast.GetFirstActor("player1");
-                Player player2 = (Player)cast.GetFirstActor("player2");
+                Player player1 = (Player)cast.GetFirstOfKey("player1");
+                Player player2 = (Player)cast.GetFirstOfKey("player2");
                 List<Actor> body1 = player1.GetSegments();
                 List<Actor> body2 = player2.GetSegments();
 

@@ -24,8 +24,8 @@ namespace Unit05.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            Player player1 = (Player)cast.GetFirstActor("player1");
-            Player player2 = (Player)cast.GetFirstActor("player2");
+            Player player1 = (Player)cast.GetFirstOfKey("player1");
+            Player player2 = (Player)cast.GetFirstOfKey("player2");
             List<Actor> body1 = player1.GetSegments();
             List<Actor> body2 = player2.GetSegments();
             // Actor score = cast.GetFirstActor("score");

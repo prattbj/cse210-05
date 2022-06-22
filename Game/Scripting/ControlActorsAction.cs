@@ -50,7 +50,7 @@ namespace Unit05.Game.Scripting
                 direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Player player1 = (Player)cast.GetFirstActor("player1");
+            Player player1 = (Player)cast.GetFirstOfKey("player1");
             player1.TurnCycle(direction);
 
             // left
@@ -77,7 +77,7 @@ namespace Unit05.Game.Scripting
                 direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Player player2 = (Player)cast.GetFirstActor("player2");
+            Player player2 = (Player)cast.GetFirstOfKey("player2");
             player2.TurnCycle(direction);
         }
     }
