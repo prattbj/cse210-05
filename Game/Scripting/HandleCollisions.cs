@@ -69,7 +69,7 @@ namespace Unit05.Game.Scripting
             List<Actor> body1 = player1.GetSegments();
             List<Actor> body2 = player2.GetSegments();
 
-            foreach (Actor segment in body1)
+            foreach (Actor segment in body1.Skip(1))
             {
                 if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
@@ -80,7 +80,7 @@ namespace Unit05.Game.Scripting
                     isGameOver = true;
                 }
             }
-            foreach (Actor segment in body2)
+            foreach (Actor segment in body2.Skip(1))
             {
                 if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
