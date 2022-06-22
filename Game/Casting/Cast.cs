@@ -73,7 +73,7 @@ namespace Unit05.Game.Casting
         /// </summary>
         /// <param name="group">The group name.</param>
         /// <returns>The first actor.</returns>
-        public Actor GetFirstActor(string group)
+        public Actor GetFirstOfKey(string group)
         {
             Actor result = null;
             if (actors.ContainsKey(group))
