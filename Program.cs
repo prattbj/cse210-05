@@ -28,10 +28,10 @@ namespace Unit05
            
             // create the script
             Script script = new Script();
-            script.AddAction("input", new ControlActorsAction(keyboardService));
-            script.AddAction("update", new MoveActorsAction());
-            script.AddAction("update", new HandleCollisionsAction());
-            script.AddAction("output", new DrawActorsAction(videoService));
+            script.AddAction("input", new ControlActors(keyboardService));
+            script.AddAction("update", new MoveActors());
+            script.AddAction("update", new HandleCollisions());
+            script.AddAction("output", new DrawActors(videoService));
 
             // start the game
             Director director = new Director(videoService);
