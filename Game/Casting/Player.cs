@@ -11,12 +11,16 @@ namespace Unit05.Game.Casting
     public class Player : Actor
     {
         private List<Actor> segments = new List<Actor>();
+        private Point spawn = new Point(0, 0);
 
         /// <summary>
         /// Constructs a new instance of Player.
         /// </summary>
-        public Player()
+        public Player(Color color, Point spawn)
         {
+            
+            SetColor(color);
+            this.spawn = spawn;
             PreparePlayer();
         }
 
@@ -89,24 +93,19 @@ namespace Unit05.Game.Casting
         /// </summary>
         private void PreparePlayer()
         {
-            int x = Constants.MAX_X / 2;
-            int y = Constants.MAX_Y / 2;
+            int x = spawn.GetX();
+            int y = spawn.GetY();
 
 
-            for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
-            {
-                Point position = new Point(x - i * Constants.CELL_SIZE, y);
-                Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
-                string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+            Point position = new Point(x, y);
+            Point velocity = new Point(0, 1 * Constants.CELL_SIZE);
+            string text = "#";
 
-                Actor segment = new Actor();
-                segment.SetPosition(position);
-                segment.SetVelocity(velocity);
-                segment.SetText(text);
-                segment.SetColor(color);
-                segments.Add(segment);
-            }
+            Actor segment = new Actor();
+            segment.SetPosition(position);
+            segment.SetVelocity(velocity);
+            segment.SetText(text);
+            segments.Add(segment);
         }
     }
 }
