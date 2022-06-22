@@ -14,14 +14,14 @@ namespace Unit05.Game.Scripting
     /// collides with the food, or the snake collides with its segments, or the game is over.
     /// </para>
     /// </summary>
-    public class HandleCollisionsAction : Action
+    public class HandleCollisions : Action
     {
         private bool isGameOver = false;
 
         /// <summary>
         /// Constructs a new instance of HandleCollisionsAction.
         /// </summary>
-        public HandleCollisionsAction()
+        public HandleCollisions()
         {
         }
 
@@ -61,14 +61,13 @@ namespace Unit05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            List<Actor> snakes = cast.GetActors("snake");
-            Snake snake1 = (Snake) snakes[0];
-            Snake snake2 = (Snake) snakes[1];
             
-            Actor head1 = snake1.GetHead();
-            Actor head2 = snake2.GetHead();
-            List<Actor> body1 = snake1.GetBody();
-            List<Actor> body2 = snake2.GetBody();
+            Player player1 = (Player) cast.GetFirstOfKey("player1");
+            Player player2 = (Player) cast.GetFirstOfKey("player2");
+            Actor head1 = player1.GetCycle();
+            Actor head2 = player2.GetCycle();
+            List<Actor> body1 = player1.GetSegments();
+            List<Actor> body2 = player2.GetSegments();
 
             foreach (Actor segment in body1)
             {
@@ -99,9 +98,10 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == true)
             {
-                Snake snake = (Snake)cast.GetFirstActor("snake");
-                List<Actor> segments = snake.GetSegments();
-                Food food = (Food)cast.GetFirstActor("food");
+                Player player1 = (Player)cast.GetFirstOfKey("player1");
+                Player player2 = (Player)cast.GetFirstOfKey("player2");
+                List<Actor> body1 = player1.GetSegments();
+                List<Actor> body2 = player2.GetSegments();
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
@@ -114,11 +114,14 @@ namespace Unit05.Game.Scripting
                 cast.AddActor("messages", message);
 
                 // make everything white
-                foreach (Actor segment in segments)
+                foreach (Actor segment in body1)
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-                food.SetColor(Constants.WHITE);
+                foreach (Actor segment in body2)
+                {
+                    segment.SetColor(Constants.WHITE);
+                }
             }
         }
 
