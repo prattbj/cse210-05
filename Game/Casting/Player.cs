@@ -5,15 +5,15 @@ using System.Linq;
 namespace Unit05.Game.Casting
 {
     /// <summary>
-    /// <para>A long limbless reptile.</para>
-    /// <para>The responsibility of Snake is to move itself.</para>
+    /// <para>A player on a bike.</para>
+    /// <para>The bike continually leaves a trail behind it..</para>
     /// </summary>
     public class Player : Actor
     {
         private List<Actor> segments = new List<Actor>();
 
         /// <summary>
-        /// Constructs a new instance of a Snake.
+        /// Constructs a new instance of Player.
         /// </summary>
         public Player()
         {
@@ -21,27 +21,27 @@ namespace Unit05.Game.Casting
         }
 
         /// <summary>
-        /// Gets the snake's body segments.
+        /// Gets the Player's trail segments.
         /// </summary>
-        /// <returns>The body segments in a List.</returns>
+        /// <returns>The trail segments in a List.</returns>
         public List<Actor> GetTrail()
         {
             return new List<Actor>(segments.Skip(1).ToArray());
         }
 
         /// <summary>
-        /// Gets the snake's head segment.
+        /// Gets the Player's cycle.
         /// </summary>
-        /// <returns>The head segment as an instance of Actor.</returns>
+        /// <returns>The cycle segment as an instance of Actor.</returns>
         public Actor GetCycle()
         {
             return segments[0];
         }
 
         /// <summary>
-        /// Gets the snake's segments (including the head).
+        /// Gets the Player's segments (including the cycle).
         /// </summary>
-        /// <returns>A list of snake segments as instances of Actors.</returns>
+        /// <returns>A list of Player segments as instances of Actors.</returns>
         public List<Actor> GetSegments()
         {
             return segments;
@@ -85,7 +85,7 @@ namespace Unit05.Game.Casting
         }
 
         /// <summary>
-        /// Prepares the snake body for moving.
+        /// Prepares the Player trail for moving.
         /// </summary>
         private void PreparePlayer()
         {
