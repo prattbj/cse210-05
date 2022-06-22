@@ -19,8 +19,12 @@ namespace Unit05
         {
             // create the cast
             Cast cast = new Cast();
-            cast.AddActor("player1", new Player());
-            cast.AddActor("player2", new Player());
+            Color color1 = new Color(255, 0, 0);
+            Color color2 = new Color(0, 255, 0);
+            Point spawn1 = new Point(300, 300);
+            Point spawn2 = new Point(600, 300);
+            cast.AddActor("player1", new Player(color1, spawn1));
+            cast.AddActor("player2", new Player(color2, spawn2));
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

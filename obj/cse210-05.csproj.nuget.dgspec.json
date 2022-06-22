@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\benny\\cse210\\cse210-05\\cse210-05.csproj": {}
+    "C:\\Users\\joshj\\Documents\\cse210\\cycle\\cse210-05\\cse210-05.csproj": {}
   },
   "projects": {
-    "C:\\Users\\benny\\cse210\\cse210-05\\cse210-05.csproj": {
+    "C:\\Users\\joshj\\Documents\\cse210\\cycle\\cse210-05\\cse210-05.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\benny\\cse210\\cse210-05\\cse210-05.csproj",
+        "projectUniqueName": "C:\\Users\\joshj\\Documents\\cse210\\cycle\\cse210-05\\cse210-05.csproj",
         "projectName": "cse210-05",
-        "projectPath": "C:\\Users\\benny\\cse210\\cse210-05\\cse210-05.csproj",
-        "packagesPath": "C:\\Users\\benny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\benny\\cse210\\cse210-05\\obj\\",
+        "projectPath": "C:\\Users\\joshj\\Documents\\cse210\\cycle\\cse210-05\\cse210-05.csproj",
+        "packagesPath": "C:\\Users\\joshj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joshj\\Documents\\cse210\\cycle\\cse210-05\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\benny\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\joshj\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
