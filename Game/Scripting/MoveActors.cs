@@ -28,6 +28,10 @@ namespace Unit05.Game.Scripting
             {
                 actor.MoveNext();
             }
+            Player player1 = (Player) cast.GetFirstOfKey("player1");
+            player1.ExtendTrail();
+            Player player2 = (Player) cast.GetFirstOfKey("player2");
+            player2.ExtendTrail();
         }
     }
 }
