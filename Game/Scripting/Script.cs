@@ -66,6 +66,5 @@ namespace Unit05.Game.Scripting
                 actions[group].Remove(action);
             }
         }
-
     }
 }

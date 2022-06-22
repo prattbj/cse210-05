@@ -11,12 +11,12 @@ namespace Unit05.Game.Scripting
     /// The responsibility of MoveActorsAction is to move all the actors.
     /// </para>
     /// </summary>
-    public class MoveActorsAction : Action
+    public class MoveActors : Action
     {
         /// <summary>
         /// Constructs a new instance of MoveActorsAction.
         /// </summary>
-        public MoveActorsAction()
+        public MoveActors()
         {
         }
 
