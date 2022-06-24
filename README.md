@@ -1,5 +1,6 @@
 # cse210-05
  Cycle game
+ Joshua Johnson, Jake Edwards, Benjamin Pratt
 
 Classes:
     Constants - Holds constant variables, like colors, font size, resolution, etc.
