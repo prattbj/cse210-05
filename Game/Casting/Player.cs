@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Unit05.Game.Casting
 {
     /// <summary>
@@ -18,7 +14,6 @@ namespace Unit05.Game.Casting
         /// </summary>
         public Player(Color color, Point spawn)
         {
-            
             SetColor(color);
             this.spawn = spawn;
             PreparePlayer();
@@ -51,18 +46,21 @@ namespace Unit05.Game.Casting
             return segments;
         }
 
+        /// <summary>
+        /// Adds an additional Actor to the segments list, extending the trail.
+        /// </summary>
         public void ExtendTrail()
         {
-            Actor tail = segments.Last<Actor>();
-            Point velocity = tail.GetVelocity();
+            Actor trail = segments.Last<Actor>();
+            Point velocity = trail.GetVelocity();
             Point offset = velocity.Reverse();
-            Point position = tail.GetPosition().Add(offset);
+            Point position = trail.GetPosition().Add(offset);
 
             Actor segment = new Actor();
             segment.SetPosition(position);
             segment.SetVelocity(velocity);
             segment.SetText("#");
-            segment.SetColor(Constants.GREEN);
+            segment.SetColor(this.GetColor());
             segments.Add(segment);
         }
 
@@ -83,6 +81,7 @@ namespace Unit05.Game.Casting
             }
         }
 
+        // Turns the player's cycle to face the given direction
         public void TurnCycle(Point direction)
         {
             segments[0].SetVelocity(direction);
@@ -98,12 +97,11 @@ namespace Unit05.Game.Casting
 
 
             Point position = new Point(x, y);
-            Point velocity = new Point(0, 1 * Constants.CELL_SIZE);
-            string text = "#";
+            string text = "@";
 
             Actor segment = new Actor();
             segment.SetPosition(position);
-            segment.SetVelocity(velocity);
+            segment.SetColor(this.GetColor());
             segment.SetText(text);
             segments.Add(segment);
         }

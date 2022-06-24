@@ -1,6 +1,3 @@
-using System;
-
-
 namespace Unit05.Game.Casting
 {
     /// <summary>

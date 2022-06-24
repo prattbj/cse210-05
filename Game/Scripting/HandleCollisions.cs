@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Data;
 using Unit05.Game.Casting;
-using Unit05.Game.Services;
 
 
 namespace Unit05.Game.Scripting
@@ -30,33 +26,14 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == false)
             {
-                // HandleFoodCollisions(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
             }
         }
 
-        /// <summary>
-        /// Updates the score nd moves the food if the snake collides with it.
-        /// </summary>
-        /// <param name="cast">The cast of actors.</param>
-        // private void HandleFoodCollisions(Cast cast)
-        // {
-        //     Snake snake = (Snake)cast.GetFirstActor("snake");
-        //     Score score = (Score)cast.GetFirstActor("score");
-        //     Food food = (Food)cast.GetFirstActor("food");
-            
-        //     if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
-        //     {
-        //         int points = food.GetPoints();
-        //         snake.GrowTail(points);
-        //         score.AddPoints(points);
-        //         food.Reset();
-        //     }
-        // }
 
         /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
+        /// Sets the game over flag if a cycle collides with a trail
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
@@ -94,6 +71,9 @@ namespace Unit05.Game.Scripting
         }
         
 
+        // Handles what happens if the game ends.
+        // Turns the cycles and their trails white and 
+        // displays the game over message.
         private void HandleGameOver(Cast cast)
         {
             if (isGameOver == true)
@@ -104,11 +84,13 @@ namespace Unit05.Game.Scripting
                 List<Actor> body2 = player2.GetSegments();
 
                 // create a "game over" message
-                int x = Constants.MAX_X / 2;
-                int y = Constants.MAX_Y / 2;
+                int x = Constants.MAX_X / 2 - 110;
+                int y = Constants.MAX_Y / 2 - 45;
                 Point position = new Point(x, y);
-
+                Color color = new Color(255, 0, 255);
                 Actor message = new Actor();
+                message.SetColor(color);
+                message.SetFontSize(45);
                 message.SetText("Game Over!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
@@ -122,6 +104,8 @@ namespace Unit05.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
+                player1.SetColor(Constants.WHITE);
+                player2.SetColor(Constants.WHITE);
             }
         }
 
