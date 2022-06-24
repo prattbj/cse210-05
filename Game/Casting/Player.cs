@@ -97,12 +97,10 @@ namespace Unit05.Game.Casting
 
 
             Point position = new Point(x, y);
-            Point velocity = new Point(0, 1 * Constants.CELL_SIZE);
             string text = "#";
 
             Actor segment = new Actor();
             segment.SetPosition(position);
-            segment.SetVelocity(velocity);
             segment.SetText(text);
             segments.Add(segment);
         }
