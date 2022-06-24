@@ -18,7 +18,6 @@ namespace Unit05.Game.Casting
         /// </summary>
         public Player(Color color, Point spawn)
         {
-            
             SetColor(color);
             this.spawn = spawn;
             PreparePlayer();
@@ -62,7 +61,7 @@ namespace Unit05.Game.Casting
             segment.SetPosition(position);
             segment.SetVelocity(velocity);
             segment.SetText("#");
-            segment.SetColor(Constants.GREEN);
+            segment.SetColor(this.GetColor());
             segments.Add(segment);
         }
 
