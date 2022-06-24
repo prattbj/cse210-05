@@ -27,15 +27,11 @@ namespace Unit05.Game.Scripting
             Player player2 = (Player)cast.GetFirstOfKey("player2");
             List<Actor> body1 = player1.GetSegments();
             List<Actor> body2 = player2.GetSegments();
-            // Actor score = cast.GetFirstActor("score");
-            // Actor food = cast.GetFirstActor("food");
             List<Actor> messages = cast.GetActors("messages");
             
             videoService.ClearBuffer();
             videoService.DrawActors(body1);
             videoService.DrawActors(body2);
-            // videoService.DrawActor(score);
-            // videoService.DrawActor(food);
             videoService.DrawActors(messages);
             videoService.FlushBuffer();
         }
