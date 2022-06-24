@@ -46,6 +46,9 @@ namespace Unit05.Game.Casting
             return segments;
         }
 
+        /// <summary>
+        /// Adds an additional Actor to the segments list, extending the trail.
+        /// </summary>
         public void ExtendTrail()
         {
             Actor trail = segments.Last<Actor>();
@@ -78,6 +81,7 @@ namespace Unit05.Game.Casting
             }
         }
 
+        // Turns the player's cycle to face the given direction
         public void TurnCycle(Point direction)
         {
             segments[0].SetVelocity(direction);
