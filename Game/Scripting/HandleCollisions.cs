@@ -104,11 +104,13 @@ namespace Unit05.Game.Scripting
                 List<Actor> body2 = player2.GetSegments();
 
                 // create a "game over" message
-                int x = Constants.MAX_X / 2;
-                int y = Constants.MAX_Y / 2;
+                int x = Constants.MAX_X / 2 - 110;
+                int y = Constants.MAX_Y / 2 - 45;
                 Point position = new Point(x, y);
-
+                Color color = new Color(255, 0, 255);
                 Actor message = new Actor();
+                message.SetColor(color);
+                message.SetFontSize(45);
                 message.SetText("Game Over!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
@@ -122,6 +124,8 @@ namespace Unit05.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
+                player1.SetColor(Constants.WHITE);
+                player2.SetColor(Constants.WHITE);
             }
         }
 
