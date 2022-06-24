@@ -52,10 +52,10 @@ namespace Unit05.Game.Casting
 
         public void ExtendTrail()
         {
-            Actor tail = segments.Last<Actor>();
-            Point velocity = tail.GetVelocity();
+            Actor trail = segments.Last<Actor>();
+            Point velocity = trail.GetVelocity();
             Point offset = velocity.Reverse();
-            Point position = tail.GetPosition().Add(offset);
+            Point position = trail.GetPosition().Add(offset);
 
             Actor segment = new Actor();
             segment.SetPosition(position);
@@ -97,10 +97,11 @@ namespace Unit05.Game.Casting
 
 
             Point position = new Point(x, y);
-            string text = "#";
+            string text = "@";
 
             Actor segment = new Actor();
             segment.SetPosition(position);
+            segment.SetColor(this.GetColor());
             segment.SetText(text);
             segments.Add(segment);
         }
