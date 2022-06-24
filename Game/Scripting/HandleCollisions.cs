@@ -30,33 +30,14 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == false)
             {
-                // HandleFoodCollisions(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
             }
         }
 
-        /// <summary>
-        /// Updates the score nd moves the food if the snake collides with it.
-        /// </summary>
-        /// <param name="cast">The cast of actors.</param>
-        // private void HandleFoodCollisions(Cast cast)
-        // {
-        //     Snake snake = (Snake)cast.GetFirstActor("snake");
-        //     Score score = (Score)cast.GetFirstActor("score");
-        //     Food food = (Food)cast.GetFirstActor("food");
-            
-        //     if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
-        //     {
-        //         int points = food.GetPoints();
-        //         snake.GrowTail(points);
-        //         score.AddPoints(points);
-        //         food.Reset();
-        //     }
-        // }
 
         /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
+        /// Sets the game over flag if a cycle collides with a trail
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
@@ -94,6 +75,9 @@ namespace Unit05.Game.Scripting
         }
         
 
+        // Handles what happens if the game ends.
+        // Turns the cycles and their trails white and 
+        // displays the game over message.
         private void HandleGameOver(Cast cast)
         {
             if (isGameOver == true)
